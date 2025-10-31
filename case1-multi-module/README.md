@@ -183,3 +183,12 @@ This demo uses Maven 4.0.0-SNAPSHOT via the Maven wrapper (`./mvnw`).
 3. **Bill of Materials (BOM)**: Import a BOM that defines compatible versions
 4. **Maven Enforcer Plugin**: Detect version conflicts at build time
 5. **Wait for better dependency resolution** in future Maven versions
+
+## Known workarounds
+
+Maven 4 has undocumented features that allow to resolve the highest versions:
+
+```bash
+cd example-application
+ ./mvnw verify -Daether.conflictResolver.versionSelector.selectionStrategy=highest -Daether.dependencyCollector.bf.skipper=versioned 
+```

@@ -26,3 +26,12 @@ If you prefer to run steps yourself:
 ```
 
 Tip: Use `dependency:tree` in the application to inspect resolved versions, as shown in Case 1’s README.
+
+## Known workarounds
+
+Maven 4 has undocumented features that allow resolving the highest versions:
+
+```bash
+cd example-application
+ ./mvnw verify -Daether.conflictResolver.versionSelector.selectionStrategy=highest -Daether.dependencyCollector.bf.skipper=versioned 
+```

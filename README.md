@@ -6,12 +6,16 @@ This project demonstrates Maven dependency mediation issues when multiple librar
 
 This repository contains two separate, self-contained examples that reproduce the same Maven dependency mediation problem using different project layouts:
 
-- Case 1 — Multi‑module project: `case1-multi-module/`
+- Case 1 — Multi‑module project
   - Code: [case1-multi-module](case1-multi-module)
   - Demonstrates the issue within a classic multi-module Maven build (parent + modules).
 
-- Case 2 — Standalone libraries and application: `case2-standalone-libs/`
+- Case 2 — Standalone libraries and application
   - Code: [case2-standalone-libs](case2-standalone-libs)
   - Demonstrates the same conflict when libraries are built independently and then consumed by an application.
 
-Both cases exhibit how Maven’s dependency mediation selects incompatible versions depending on declaration order, leading to runtime `NoSuchMethodError`.
+- Case 3 — Standalone libraries and application + direct Guice dependency
+  - Code: [case3-standalone-with-direct-dep](case3-standalone-with-direct-dep)
+  - Demonstrates the same conflict when libraries are built independently and then consumed by an application which uses direct Guice dependency.
+
+All the cases exhibit how Maven’s dependency mediation selects incompatible versions depending on declaration order, leading to runtime `NoSuchMethodError`.
